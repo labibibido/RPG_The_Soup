@@ -27,3 +27,7 @@ v2.5
 
 v3.0
 - maded the answer key for the game
+
+v3.1
+- Added the way to quit
+- updated the readme file
