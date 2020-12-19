@@ -1,5 +1,6 @@
 from player import Player
 import map
+import sys
 from collections import OrderedDict
 
 
@@ -12,7 +13,11 @@ def play():
     table and chairs are placed in the center of the room, a bowl of deep
     red soup was quietly placed on a table.
     """)
-    input(">>Press enter to start the game. ")
+    q = input(">>Press enter to start the game. Enter 'Q' to exit the game.")
+    # quit game
+    if q in ['Q', 'q']:
+        print('You opt out of the game!')
+        sys.exit()
     map.parse_room_dsl()
     player = Player()
     # Possible player directions and actions continue as long as the player is
@@ -33,7 +38,7 @@ def get_available_actions(position, player):
     """Only make valid actions available. Actions are stored in a dictionary"""
     # store actions in a dictionary
     actions = OrderedDict()
-    print("\nChoose an action: ")
+    print("Choose an action: ")
     # print inventory option if there are any items
     if player.inventory:
         action_adder(actions, "i", player.print_inventory, "Print Inventory")
